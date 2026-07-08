@@ -1,4 +1,7 @@
-import requests
+import os
+from groq import Groq
+
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 class Agent:
     def __init__(self, name, role_description):
@@ -12,14 +15,10 @@ User request: {user_message}
 
 Respond helpfully and concisely, staying in your role."""
 
-        response = requests.post(
-            "http://localhost:11434/api/generate",
-            json={
-                "model": "llama3.2:3b",
-                "prompt": prompt,
-                "stream": False
-            }
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=300
         )
 
-        result = response.json()
-        return result["response"]
+        return response.choices[0].message.content
