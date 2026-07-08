@@ -1,4 +1,6 @@
-<div align="center">
+Good — let's finish this properly with the full updated README, so everything (badges, description, architecture) accurately matches what's actually live now.
+Replace your entire README.md with this:
+markdown<div align="center">
 
 # 🤖 NEXUS
 ### *A multi-agent AI system that knows which brain to call*
@@ -6,8 +8,8 @@
 [![Streamlit](https://img.shields.io/badge/🚀_Live_Demo-Streamlit-FF4B4B?style=for-the-badge)](https://readmemd-5tuak6cu6j5kkkbuf3eb36.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Groq](https://img.shields.io/badge/Cloud_LLM-Groq-F55036?style=for-the-badge)](https://groq.com/)
-[![Llama](https://img.shields.io/badge/Model-Llama_3.2_3B-FFD21E?style=for-the-badge)](https://ollama.com/library/llama3.2)
-[![Colorama](https://img.shields.io/badge/UI-Terminal-4D4D4D?style=for-the-badge)](https://pypi.org/project/colorama/)
+[![Llama](https://img.shields.io/badge/Model-Llama_3.1_8B-FFD21E?style=for-the-badge)](https://console.groq.com/docs/models)
+[![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 
 </div>
 
@@ -22,6 +24,8 @@ Most AI assistants are one brain trying to do everything — scheduling, emailin
 NEXUS routes every user request through an AI-powered router that decides which of its four specialized agents should respond — then hands off the request and returns a focused, role-appropriate answer.
 
 Type a request in plain English. NEXUS figures out whether it's a calendar task, an email draft, a to-do priority call, or a note to save — and responds accordingly.
+
+🔗 **Try it live:** [Streamlit Cloud →](https://readmemd-5tuak6cu6j5kkkbuf3eb36.streamlit.app/)
 
 ## 🧠 The Agents
 
@@ -41,14 +45,17 @@ Notes Agent → Persistent JSON storage
 
 **Persistence:** Unlike a typical chatbot demo, the Notes Agent actually writes to disk. Notes survive across sessions and can be retrieved on demand.
 
-**Local inference:** NEXUS runs entirely on Ollama with Llama 3.2 (3B) — no external API costs, no internet dependency once set up.
+**Two interfaces:**
+- A **terminal version** (`main.py`) with a colored CLI, originally built to run fully locally using Ollama with Llama 3.2 (3B) — no external API, no internet dependency.
+- A **deployed web version** (`app.py`) built with Streamlit, using Groq's cloud API (Llama 3.1 8B) for inference so it can run as a live, publicly accessible demo.
 
 ## 🧰 Tech Stack
 
-`Python` · `Ollama` · `Llama 3.2 (3B)` · `Colorama` · `Requests` · `JSON`
+`Python` · `Groq API` · `Llama 3.1 (8B)` · `Streamlit` · `Ollama` (local mode) · `Colorama` · `Requests` · `JSON`
 
 ## 📁 Repository Structure
-├── main.py               # Entry point — terminal UI and main loop
+├── main.py               # Terminal entry point — CLI UI and main loop
+├── app.py                # Streamlit entry point — web UI (deployed version)
 ├── router.py             # AI-based request classification and routing
 ├── agent.py              # Base Agent class shared by all 4 agents
 ├── agents_setup.py       # Instantiates the 4 specialized agents
@@ -57,6 +64,8 @@ Notes Agent → Persistent JSON storage
 └── requirements.txt
 
 ## 🚀 Run It Yourself
+
+**Option 1 — Terminal version (local, free, using Ollama):**
 
 ```bash
 # 1. Install Ollama and pull the model
@@ -71,6 +80,20 @@ pip install requests colorama
 
 # 4. Run NEXUS
 python main.py
+```
+
+**Option 2 — Web version (using Groq API):**
+
+```bash
+# 1. Get a free API key from console.groq.com
+# 2. Set it as an environment variable
+set GROQ_API_KEY=your_key_here
+
+# 3. Install dependencies
+pip install groq streamlit
+
+# 4. Run the app
+streamlit run app.py
 ```
 
 ## 🌐 Future Plans — NEXUS 2.0
