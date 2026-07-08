@@ -3,6 +3,7 @@
 # 🤖 NEXUS
 ### *A multi-agent AI system that knows which brain to call*
 
+[![Streamlit](https://img.shields.io/badge/🚀_Live_Demo-Streamlit-FF4B4B?style=for-the-badge)](https://readmemd-5tuak6cu6j5kkkbuf3eb36.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Ollama](https://img.shields.io/badge/Local_LLM-Ollama-000000?style=for-the-badge)](https://ollama.com/)
 [![Llama](https://img.shields.io/badge/Model-Llama_3.2_3B-FFD21E?style=for-the-badge)](https://ollama.com/library/llama3.2)
