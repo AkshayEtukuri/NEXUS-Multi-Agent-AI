@@ -1,6 +1,4 @@
-Good — let's finish this properly with the full updated README, so everything (badges, description, architecture) accurately matches what's actually live now.
-Replace your entire README.md with this:
-markdown<div align="center">
+<div align="center">
 
 # 🤖 NEXUS
 ### *A multi-agent AI system that knows which brain to call*
